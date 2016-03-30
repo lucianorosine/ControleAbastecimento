@@ -1,0 +1,124 @@
+﻿@model IEnumerable<ControleAbastecimento.Areas.Admin.Models.CadUsuario>
+
+@{
+    ViewBag.Title = "Lista de Usuarios";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Controle de Abastecimento de Veiculo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Menu Principal", "Index", "Home", new { Area = "Admin" }, null)</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>*@
+
+    <br/>
+    <h2>Lista de Usuarios</h2>
+
+    <p>
+        @*@Html.ActionLink("Novo Usuario", "Create")*@
+        <a href="@Url.Action("Create")" class="btn btn-primary">
+            <span class="fa fa-plus"></span>
+            Novo Cadastro
+        </a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inativo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Senha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inativo)
+                </td>
+                <td>
+                    @*Chamada original alterada
+                    @Html.ActionLink("Alterar", "Edit", new { id = item.IdUsuario }) |
+                    @Html.ActionLink("Consultar", "Details", new { id = item.IdUsuario }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.IdUsuario })*@
+                    
+                    <a href="@Url.Action("Edit", new { id = item.IdUsuario })" class="btn btn-success btn-xs">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <i class="icon-white icon-ok"></i>
+                        Editar
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.IdUsuario })" class="btn btn-info btn-xs">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <i class="icon-white icon-search"></i>
+                        Consultar
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.IdUsuario })" class="btn btn-danger btn-xs">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <i class="icon-white icon-remove"></i>
+                        Excluir
+                    </a>
+                    
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div class="container body-content">
+
+       
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

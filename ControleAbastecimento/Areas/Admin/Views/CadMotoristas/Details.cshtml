@@ -1,0 +1,43 @@
+﻿@model ControleAbastecimento.Areas.Admin.Models.CadMotorista
+
+@{
+    ViewBag.Title = "Consulta Motorista";
+}
+<br/>
+<h2>Consulta Motorista</h2>
+<div>
+    <h4>Dados do Motorista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CPF }) |
+    @Html.ActionLink("Back to List", "Index")
+    @*<a href="@Url.Action("Alterar", "Edit", new { id = Model.CPF })" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Alterar
+    </a>
+    <a href="@Url.Action("Index")" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Voltar
+    </a>*@
+</p>
+
+</p>

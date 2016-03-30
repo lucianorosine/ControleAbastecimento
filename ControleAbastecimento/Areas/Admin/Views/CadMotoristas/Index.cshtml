@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ControleAbastecimento.Areas.Admin.Models.CadMotorista>
+
+@{
+    ViewBag.Title = "Lista de Motorista";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Controle de Abastecimento de Veiculo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Menu Principal", "Index", "Home", new { Area = "Admin" }, null)</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>*@
+
+    <br />
+    <h2>Lista de Motorista</h2>
+    <p>
+        @*@Html.ActionLink("Novo Usuario", "Create")*@
+        <a href="@Url.Action("Create")" class="btn btn-primary">
+            <span class="fa fa-plus"></span>
+            Novo Cadastro
+        </a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.CPF }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.CPF }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CPF })*@
+
+                    <a href="@Url.Action("Edit", new { id = item.CPF })" class="btn btn-success btn-xs">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <i class="icon-white icon-ok"></i>
+                        Editar
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.CPF })" class="btn btn-info btn-xs">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <i class="icon-white icon-search"></i>
+                        Consultar
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.CPF })" class="btn btn-danger btn-xs">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <i class="icon-white icon-remove"></i>
+                        Excluir
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="container body-content">
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@model ControleAbastecimento.Areas.Admin.Models.CadVeiculo
+
+@{
+    ViewBag.Title = "Exclusão de Veiculo";
+}
+<br/>
+<h2>Exclusão de Veiculo</h2>
+
+<h3>Deseja realmente excluir esse veiculo?</h3>
+<div>
+    <h4>Dados do Veiculo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-1">
+                <input type="submit" value="Excluir" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>
+
+<div class="col-md-offset-0 col-md-1">
+    @*@Html.ActionLink("Voltar", "Index")*@
+    <a href="@Url.Action("Index")" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Voltar
+    </a>
+</div>
+</br>
+</br

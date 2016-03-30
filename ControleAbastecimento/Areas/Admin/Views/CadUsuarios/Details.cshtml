@@ -1,0 +1,71 @@
+﻿@model ControleAbastecimento.Areas.Admin.Models.CadUsuario
+
+@{
+    ViewBag.Title = "Consulta de Usuario";
+}
+<br/>
+<h2>Consulta de Usuario</h2>
+
+<div>
+    <h4>Dados do Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inativo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*Retirado chamada original
+        @Html.ActionLink("Alterar", "Edit", new { id = Model.IdUsuario }) |
+    @Html.ActionLink("Voltar", "Index")*@
+
+    
+    <a href="@Url.Action("Alterar", "Edit", new { id = Model.IdUsuario })" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Alterar
+    </a>
+
+
+    <a href="@Url.Action("Index")" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Voltar
+    </a>
+</p>

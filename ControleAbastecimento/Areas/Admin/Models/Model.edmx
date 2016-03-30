@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDAbastecimentoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CadMotorista">
+          <Key>
+            <PropertyRef Name="CPF" />
+          </Key>
+          <Property Name="CPF" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CadPosto">
+          <Key>
+            <PropertyRef Name="CNPJ" />
+          </Key>
+          <Property Name="CNPJ" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="50" />
+          <Property Name="Bairro" Type="varchar" MaxLength="50" />
+          <Property Name="Cidade" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="varchar" MaxLength="2" />
+          <Property Name="Bandeira" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CadUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="70" />
+          <Property Name="DataCadastro" Type="datetime" />
+          <Property Name="Senha" Type="varchar" MaxLength="10" />
+          <Property Name="Inativo" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CadVeiculo">
+          <Key>
+            <PropertyRef Name="Placa" />
+          </Key>
+          <Property Name="Placa" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Ano" Type="int" Nullable="false" />
+          <Property Name="Marca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="BDAbastecimentoModelStoreContainer">
+          <EntitySet Name="CadMotorista" EntityType="Self.CadMotorista" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CadPosto" EntityType="Self.CadPosto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CadUsuario" EntityType="Self.CadUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CadVeiculo" EntityType="Self.CadVeiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDAbastecimentoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CadUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DataCadastro" Type="DateTime" Precision="3" />
+          <Property Name="Senha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Inativo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="BDAbastecimentoEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CadUsuario" EntityType="Self.CadUsuario" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="CadMotorista" EntityType="BDAbastecimentoModel.CadMotorista" />
+          <EntitySet Name="CadPosto" EntityType="BDAbastecimentoModel.CadPosto" />
+          <EntitySet Name="CadVeiculo" EntityType="BDAbastecimentoModel.CadVeiculo" />
+        </EntityContainer>
+        <EntityType Name="CadMotorista">
+          <Key>
+            <PropertyRef Name="CPF" />
+          </Key>
+          <Property Name="CPF" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CadPosto">
+          <Key>
+            <PropertyRef Name="CNPJ" />
+          </Key>
+          <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Bandeira" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CadVeiculo">
+          <Key>
+            <PropertyRef Name="Placa" />
+          </Key>
+          <Property Name="Placa" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Ano" Type="Int32" Nullable="false" />
+          <Property Name="Marca" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDAbastecimentoModelStoreContainer" CdmEntityContainer="BDAbastecimentoEntities1">
+          <EntitySetMapping Name="CadUsuario">
+            <EntityTypeMapping TypeName="BDAbastecimentoModel.CadUsuario">
+              <MappingFragment StoreEntitySet="CadUsuario">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Inativo" ColumnName="Inativo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BDAbastecimentoModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CadMotorista">
+            <EntityTypeMapping TypeName="BDAbastecimentoModel.CadMotorista">
+              <MappingFragment StoreEntitySet="CadMotorista">
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CadPosto">
+            <EntityTypeMapping TypeName="BDAbastecimentoModel.CadPosto">
+              <MappingFragment StoreEntitySet="CadPosto">
+                <ScalarProperty Name="Bandeira" ColumnName="Bandeira" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CadVeiculo">
+            <EntityTypeMapping TypeName="BDAbastecimentoModel.CadVeiculo">
+              <MappingFragment StoreEntitySet="CadVeiculo">
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

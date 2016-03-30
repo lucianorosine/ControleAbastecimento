@@ -1,0 +1,77 @@
+﻿@model ControleAbastecimento.Areas.Admin.Models.CadPosto
+
+@{
+    ViewBag.Title = "Consulta Postos de Abastecimento";
+}
+
+<h2>Consulta Postos de Abastecimento</h2>
+
+<div>
+    <h4>Dados do Posto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bandeira)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bandeira)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CNPJ }) |
+    @Html.ActionLink("Back to List", "Index")*@
+
+    <a href="@Url.Action("Alterar", "Edit", new { id = Model.CNPJ })" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Alterar
+    </a>
+
+
+    <a href="@Url.Action("Index")" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Voltar
+    </a>
+</p>

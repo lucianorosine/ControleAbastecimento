@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Controle de Abastecimento de Veiculo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Menu Principal", "Index", "Home", new { Area = "Admin" }, null)</li>
+                    <li>@Html.ActionLink("Sair", "Index", "Home", new { Area = "" }, null)</li>    
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+
+        <div class="col-md-3">
+            <div class="row">
+                <div class="jumbotron row text-center">
+                    <a href="@Url.Action("Index", "CadUsuarios", new {Area ="Admin" }, null)" class="btn btn-primary btn-lg btn-block" role="button">
+                        @*<img src="~/Content/Imagens/glyphicons-4-user.png" />*@
+                        <img src="~/Content/Imagens/glyphicons2-4-user.png" />
+                        Cadastro Usuario
+                    </a>
+                    <a href="@Url.Action("Index", "CadVeiculos", new {Area ="Admin" }, null)" class="btn btn-primary btn-lg btn-block" role="button">
+                        <img src="~/Content/Imagens/glyphicons2-6-car.png" />
+                        @*<img src="~/Content/Imagens/glyphicons-6-car.png" />*@
+                        Cadastro Veiculo
+                    </a>
+                    <a href="@Url.Action("Index", "CadMotoristas", new {Area ="Admin" }, null)" class="btn btn-primary btn-lg btn-block" role="button">
+                        @*<img src="~/Content/Imagens/glyphicons-44-group.png" />*@
+                        <img src="~/Content/Imagens/glyphicons2-44-group.png" />
+                        Cadastro Motorista
+                    </a>
+                    <a href="@Url.Action("Index", "CadPostos", new {Area ="Admin" }, null)" class="btn btn-primary btn-lg btn-block" role="button">
+                        @*<img src="~/Content/Imagens/glyphicons-21-home.png" />*@
+                        <img src="~/Content/Imagens/glyphicons2-21-home.png" />
+                        Cadastro Posto
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <footer>                    
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; @DateTime.Now.Year - Projeto Pronatec - Luciano D. Rosine </p>
+                </footer>
+            </div>            
+    </div>
+
+    <div class="col-md-9">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+    </div>
+
+            
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model ControleAbastecimento.Areas.Admin.Models.CadMotorista
+
+@{
+    ViewBag.Title = "Excluir Motorista";
+}
+<br/>
+<h2>Exclusão de Motorista</h2>
+<h3>Deseja realmente excluir esse usuario?</h3>
+<div>
+    <h4>Dados do Motorista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-1">
+                <input type="submit" value="Excluir" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>
+<div class="col-md-offset-0 col-md-1">
+    @*@Html.ActionLink("Voltar", "Index")*@
+    <a href="@Url.Action("Index")" class="btn btn-primary">
+        <span class="fa fa-plus"></span>
+        Voltar
+    </a>
+</div>
+</br>
+</br>
+
